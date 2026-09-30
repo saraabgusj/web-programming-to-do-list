@@ -1,0 +1,165 @@
+:root {
+  --bg: #eef1f5;
+  --surface: #ffffff;
+  --ink: #1c2430;
+  --muted: #6b7686;
+  --line: #d9dfe7;
+  --accent: #2f5bd8;
+  --accent-dark: #2447ae;
+  --done: #8a94a3;
+  --danger: #c0392b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2rem 1rem;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 1.75rem;
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(28, 36, 48, 0.08);
+}
+
+h1 {
+  margin: 0 0 1.25rem;
+  font-size: 1.75rem;
+}
+
+#task-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#task-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+#task-input:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(47, 91, 216, 0.4);
+  outline-offset: 1px;
+}
+
+#task-input.invalid {
+  border-color: var(--danger);
+}
+
+#add {
+  padding: 0.65rem 1.1rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#add:hover { background: var(--accent-dark); }
+
+.message {
+  min-height: 1.4rem;
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+  color: var(--danger);
+}
+
+.summary {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.task:last-child { border-bottom: none; }
+
+.task-title {
+  flex: 1;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  user-select: none;
+}
+
+.task-title::before {
+  content: "";
+  display: inline-block;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-right: 0.6rem;
+  vertical-align: -0.15rem;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+.task.done .task-title {
+  color: var(--done);
+  text-decoration: line-through;
+}
+
+.task.done .task-title::before {
+  background: var(--accent);
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+.delete {
+  padding: 0.3rem 0.65rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--danger);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+
+.empty-state {
+  margin: 1.5rem 0 0.5rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.empty-state[hidden] { display: none; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
