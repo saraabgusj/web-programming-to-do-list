@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="todolist.css">
+</head>
+
+<body>
+
+  <main class="app">
+    <h1>To-Do List</h1>
+
+    <form id="task-form">
+      <label for="task-input" class="visually-hidden">New task</label>
+      <input id="task-input" type="text" placeholder="What is you upcoming task?">
+      <button type="submit" id="add">Add task</button>
+    </form>
+
+    <p id="message" class="message" role="alert"></p>
+
+    <p id="summary" class="summary"></p>
+
+    <ul id="task-list" class="task-list"></ul>
+
+    <p id="empty-state" class="empty-state">No tasks yet. Add your first one above.</p>
+  </main>
+
+  <script src="js/todolist.js"></script>
+
+</body>
+
+</html>
